@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo</title>
+    <script>
+        function check()
+        {
+            const kilometros = document.getElementById("kilometros")
+            const minutos = document.getElementById("minutos")
+            const consumoMedio = document.getElementById("consumoMedio")
+            if(kilometros.value.trim().lenght == 0 || kilometros.value.trim().lenght == 0 || kilometros.value.trim().lenght == 0 ||
+                !isNaN("kilometros") || !isNaN("minutos") || !isNaN("consumoMedio"))
+            {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+    <body>
+        <h1>Calculadora de consumo de vehículos</h1>
+        <br/>
+        <form
+            id="consumoForm"
+            action="/consumo"
+            method="post"
+            onsumit="return check()"
+        >
+            <label
+                for="kilometros"
+            >
+                Kilómetros
+            </label>
+            <input 
+                type="number"
+                id="kilometros"
+                name="kilometros"
+            />
+            <br/>
+            <label
+                for="minutos"
+            >
+                Minutos
+            </label>
+            <input 
+                type="number"
+                id="minutos"
+                name="minutos"
+            />
+            <br/>
+            <label
+                for="consumoMedio"
+            >
+                Consumo Medio
+            </label>
+            <input 
+                type="number"
+                id="consumoMedio"
+                name="consumoMedio"
+            />
+            <input type="submit" value="Calcular"/>
+        </form>
+    </body>
+</html>
