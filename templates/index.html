@@ -9,8 +9,8 @@
             const kilometros = document.getElementById("kilometros")
             const minutos = document.getElementById("minutos")
             const consumoMedio = document.getElementById("consumoMedio")
-            if(kilometros.value.trim().lenght == 0 || kilometros.value.trim().lenght == 0 || kilometros.value.trim().lenght == 0 ||
-                !isNaN("kilometros") || !isNaN("minutos") || !isNaN("consumoMedio"))
+            if(kilometros.value.trim().lenght === 0 || kilometros.value.trim().lenght === 0 || kilometros.value.trim().lenght === 0 ||
+                !isNaN(kilometros) || !isNaN(minutos) || !isNaN(consumoMedio))
             {
                 return true;
             }
@@ -32,7 +32,7 @@
             >
                 Kilómetros
             </label>
-            <input 
+            <input
                 type="number"
                 id="kilometros"
                 name="kilometros"
@@ -43,7 +43,7 @@
             >
                 Minutos
             </label>
-            <input 
+            <input
                 type="number"
                 id="minutos"
                 name="minutos"
@@ -54,7 +54,7 @@
             >
                 Consumo Medio
             </label>
-            <input 
+            <input
                 type="number"
                 id="consumoMedio"
                 name="consumoMedio"

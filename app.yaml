@@ -5,13 +5,13 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /
-  static_files: templates/index.html
-  upload: templates/index\.html
-
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+
+- url: /
+  static_files: templates/index.html
+  upload: templates/index\.html
 
 - url: .*
   script: handlers.main.app

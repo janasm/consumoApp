@@ -16,36 +16,42 @@
 #
 import webapp2
 
+
 class MainHandler(webapp2.RequestHandler):
     def post(self):
         kilometros = self.request.get("kilometros", "0")
         minutos = self.request.get("minutos", "0")
         consumoMedio = self.request.get("consumoMedio", "0")
+        km = 0
+        mn = 0
+        cMedio = 0
 
         if len(kilometros.strip()) == 0:
-            try: 
-                float(kilometros) 
+            try:
+                km = float(kilometros)
             except:
-                kilometros = 0
+                self.response.write('El campo kilómetros debe tener un valor numérico.')
 
-        if( len(minutos.strip()) == 0):
-            try: 
-                float(minutos) 
+        if len(minutos.strip()) == 0:
+            try:
+                mn = int(minutos)
             except:
-                minutos = 0  
+                self.response.write('El campo minutos debe tener un valor numérico.')
 
         if len(consumoMedio.strip()) == 0:
-            try: 
-                float(consumoMedio) 
+            try:
+                cMedio = float(consumoMedio)
             except:
-                consumoMedio = 0 
+                self.response.write('El campo consumo medio debe tener un valor numérico.')
 
-        if kilometros != 0 and  minutos != 0 and consumoMedio != 0:
-            horas = minutos / 60
-            consumoTotal = consumoMedio * kilometros
-            velocidadMedia = kilometros / horas
+        if km != 0 and mn != 0 and cMedio != 0:
+            horas = mn / 60
+            consumoTotal = cMedio * km
+            velocidadMedia = km / horas
 
-        self.response.write('Velocidad media: ' + str(velocidadMedia) + ' km/h' + '\nConsumo total: ' + str(consumoTotal) + ' l/km')
+        self.response.write(
+            'Velocidad media: ' + str(velocidadMedia) + ' km/h' + '\nConsumo total: ' + str(consumoTotal) + ' l/km')
+
 
 app = webapp2.WSGIApplication([
     ('/consumo', MainHandler)
